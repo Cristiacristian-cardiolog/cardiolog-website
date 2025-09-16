@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. med. Dan Cristian Briscan – Cardiolog</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+html { scroll-behavior: smooth; }
+body { margin:0; font-family:'Roboto',sans-serif; line-height:1.6; color:#333; background-color:#f4f6f8; }
+header { background: url('https://images.unsplash.com/photo-1588776814546-4d1d5dc54ad5?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat; color:#fff; text-align:center; padding:100px 20px; position:relative; }
+header::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.5); z-index:0; }
+header h1, header p, .cta-buttons { position:relative; z-index:1; }
+header h1 { font-size:42px; margin-bottom:15px; font-weight:700; }
+header p { font-size:22px; margin-bottom:35px; font-weight:400; }
+.cta-buttons { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; }
+.btn { padding:15px 30px; border-radius:50px; font-size:18px; font-weight:bold; text-decoration:none; color:#fff; transition: transform 0.2s, box-shadow 0.2s; display:inline-block; text-align:center; cursor:pointer; }
+.btn-book { background-color:#28a745; }
+.btn-book:hover { background-color:#218838; transform:scale(1.05); box-shadow:0 5px 15px rgba(0,0,0,0.3); }
+.btn-call { background-color:#ffc107; color:#333; }
+.btn-call:hover { background-color:#e0a800; transform:scale(1.05); box-shadow:0 5px 15px rgba(0,0,0,0.3); }
+main { max-width:1000px; margin:40px auto; padding:0 20px; }
+section { padding:40px 25px; border-radius:15px; margin-bottom:35px; background-color:#fff; box-shadow:0 6px 25px rgba(0,0,0,0.08); }
+h2 { color:#007bff; margin-bottom:20px; font-size:28px; }
+ul { margin-left:20px; margin-bottom:20px; }
+ul li { margin-bottom:12px; display:flex; align-items:center; gap:12px; font-size:17px; }
+ul li::before { content:"💓"; display:inline-block; }
+footer { text-align:center; padding:25px; font-size:14px; color:#666; background:#e9ecef; border-top:1px solid #ccc; }
+.sticky-cta { display:none; }
+@media (max-width:768px) {
+  .sticky-cta { display:flex; position:fixed; bottom:0; left:0; width:100%; justify-content:space-around; background-color:#fff; padding:12px 0; box-shadow:0 -2px 20px rgba(0,0,0,0.18); z-index:1000; }
+  .sticky-cta a { flex:1; margin:0 12px; }
+}
+form input, form select, form textarea { width:100%; padding:12px; margin:6px 0 18px 0; border-radius:8px; border:1px solid #ccc; font-size:16px; }
+.contact-list a { text-decoration:none; color:#007bff; font-weight:500; }
+.option-occupied { background-color:#f8d7da; color:#721c24; font-weight:500; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>Dr. med. Dan Cristian Briscan</h1>
+<p>Medic specialist în Cardiologie și Medicină Internă</p>
+<div class="cta-buttons">
+  <a href="tel:+4915163269702" class="btn btn-call">Sună acum</a>
+  <a href="#appointmentForm" class="btn btn-book">Rezervă acum</a>
+</div>
+</header>
+
+<main>
+<section>
+<h2>Despre mine</h2>
+<p>Sunt medic cu o experiență de peste 15 ani în Germania, în domeniile:</p>
+<ul>
+<li>Cardiologie clinică și intervențională (cateterism cardiac, tratamentul infarctului miocardic)</li>
+<li>Imagistică intracoronară: IVUS și OCT</li>
+<li>Imagistică cardiovasculară (ecocardiografie, RMN și CT cardiac)</li>
+<li>Medicină de urgență și terapie intensivă</li>
+</ul>
+</section>
+
+<section>
+<h2>Domenii de interes</h2>
+<ul>
+<li>Prevenția bolilor cardiovasculare</li>
+<li>Hipertensiune arterială</li>
+<li>Insuficiență cardiacă</li>
+<li>Boala coronariană</li>
+<li>Evaluarea riscului cardiovascular</li>
+<li>Consiliere pentru stil de viață sănătos</li>
+</ul>
+</section>
+
+<section>
+<h2>Misiunea mea</h2>
+<p>Misiunea mea este să fiu aproape de tine și de familia ta, oferind suport medical profesionist, accesibil și sigur, indiferent unde te afli.</p>
+<p>„Ai grijă de inima ta ❤️! Găsești aici sfaturi utile și poți programa rapid o consultație online.”</p>
+</section>
+
+<section>
+<h2>Programează o consultație</h2>
+<form action="https://formsubmit.co/cristian.cardiolog@yahoo.com" method="POST" id="appointmentForm">
+  <input type="hidden" name="_captcha" value="false">
+  <label for="name">Nume complet:</label>
+  <input type="text" id="name" name="name" required>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+  <label for="phone">Telefon:</label>
+  <input type="tel" id="phone" name="phone" required>
+  <label for="date">Selectează data:</label>
+  <input type="date" id="date" name="date" required>
+  <label for="time">Selectează ora:</label>
+  <select id="time" name="time" required></select>
+  <button type="submit" class="btn btn-book">Programează</button>
+</form>
+</section>
+
+<section>
+<h2>Contact</h2>
+<ul class="contact-list" style="list-style:none; padding-left:0;">
+<li>📞 <a href="tel:+4915163269702">+49 1516 3269702</a></li>
+<li>✉️ <a href="mailto:cristian.cardiolog@yahoo.com">cristian.cardiolog@yahoo.com</a></li>
+<li>📷 <a href="https://www.instagram.com/cristian.cardiolog/" target="_blank">Instagram</a></li>
+<li>📘 <a href="https://www.facebook.com/profile.php?id=61579258951146" target="_blank">Facebook</a></li>
+</ul>
+</section>
+</main>
+
+<div class="sticky-cta">
+  <a href="tel:+4915163269702" class="btn btn-call">Sună acum</a>
+  <a href="#appointmentForm" class="btn btn-book">Rezervă acum</a>
+</div>
+
+<footer>
+&copy; 2025 Dr. med. Dan Cristian Briscan – Cardiolog | Toate drepturile rezervate
+</footer>
+
+<script>
+// === CONFIG ===
+// Înlocuiește cu link-ul public Google Sheet TSV
+const sheetUrl = "https://docs.google.com/spreadsheets/d/e/YOUR_SHEET_ID/pub?output=tsv";
+
+const dateInput = document.getElementById('date');
+const timeSelect = document.getElementById('time');
+
+async function fetchOccupiedSlots() {
+  const res = await fetch(sheetUrl);
+  const text = await res.text();
+  const lines = text.split("\n").slice(1);
+  const slots = {};
+  lines.forEach(line => {
+    const [date, time] = line.split("\t");
+    if(!slots[date]) slots[date] = [];
+    if(time) slots[date].push(time.trim());
+  });
+  return slots;
+}
+
+async function updateTimeOptions() {
+  timeSelect.innerHTML = '<option value="">-- Alege ora --</option>';
+  if(!dateInput.value) return;
+  const selectedDate = new Date(dateInput.value);
+  const day = selectedDate.getDay();
+  let startHour, endHour;
+  if(day >=1 && day <=5){ startHour=17; endHour=23; } else { startHour=8; endHour=20; }
+
+  const occupiedSlots = await fetchOccupiedSlots();
+  const occupied = occupiedSlots[dateInput.value] || [];
+
+  for(let h=startHour; h<=endHour; h++){
+    for(let m=0; m<60; m+=15){
+      const hourStr = h.toString().padStart(2,'0') + ':' + m.toString().padStart(2,'0');
+      const option = document.createElement('option');
+      option.value = hourStr;
+      option.textContent = hourStr;
+      if(occupied.includes(hourStr)){
+        option.disabled = true;
+        option.classList.add('option-occupied');
+        option.textContent += " (Ocupat)";
