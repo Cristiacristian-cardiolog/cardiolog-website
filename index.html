@@ -1,164 +1,374 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. med. Dan Cristian Briscan – Cardiolog</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
-    header { background: #c62828; color: white; text-align: center; padding: 1rem; }
-    nav { margin: 1rem; text-align: center; }
-    nav button { margin: 0 5px; padding: 6px 12px; border: none; border-radius: 5px; cursor: pointer; }
-    main { padding: 1rem; max-width: 900px; margin: auto; }
-    section { margin-bottom: 2rem; }
-    footer { background: #333; color: white; text-align: center; padding: 1rem; margin-top: 2rem; }
-    .sticky-cta { position: fixed; bottom: 10px; right: 10px; display: flex; gap: 10px; }
-    .sticky-cta button { padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; }
-    #callBtn { background: #25D366; color: white; }
-    #reserveBtn { background: #1976d2; color: white; }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dr. Dan Cristian Briscan — Cardiolog</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--accent:#007bff;--green:#25D366;--btn:#28a745}
+  body{font-family:Roboto,Arial,sans-serif;margin:0;background:#f4f6f8;color:#222}
+  header{background:#0b4f6c;color:#fff;padding:36px 18px;text-align:center}
+  header h1{margin:0;font-size:26px}
+  header p{margin:8px 0 16px;color:#e6f2f7}
+  .controls{display:flex;gap:10px;justify-content:center;margin-bottom:12px;flex-wrap:wrap}
+  .controls button{padding:10px 14px;border-radius:8px;border:0;cursor:pointer;font-weight:700}
+  .controls .lang{background:#fff;color:#0b4f6c}
+  .cta{display:flex;gap:12px;justify-content:center;margin:12px 0;flex-wrap:wrap}
+  .btn{padding:12px 20px;border-radius:40px;text-decoration:none;color:#fff;display:inline-block}
+  .btn-call{background:var(--green)}
+  .btn-book{background:var(--btn)}
+  main{max-width:980px;margin:28px auto;padding:0 18px}
+  section{background:#fff;padding:22px;border-radius:12px;margin-bottom:20px;box-shadow:0 6px 20px rgba(0,0,0,0.06)}
+  h2{color:var(--accent);margin-top:0}
+  ul{padding-left:18px}
+  .contact-list a{color:var(--accent);text-decoration:none}
+  .sticky-cta{display:none}
+  @media(max-width:768px){ .sticky-cta{display:flex;position:fixed;bottom:0;left:0;width:100%;justify-content:space-around;background:#fff;padding:12px 10px;box-shadow:0 -2px 20px rgba(0,0,0,0.12)} .sticky-cta a{flex:1;margin:0 8px}}
+  select,input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;font-size:15px}
+  .option-occupied{background:#f8d7da;color:#721c24}
+  .small{font-size:13px;color:#666}
+</style>
 </head>
 <body>
+
 <header>
-  <h1 id="title">Dr. med. Dan Cristian Briscan – Cardiolog</h1>
+  <h1 id="hdrName">Dr. med. Dan Cristian Briscan</h1>
+  <p id="hdrSubtitle">Medic specialist în Cardiologie și Medicină Internă</p>
+
+  <div class="controls">
+    <button class="lang" onclick="setLang('ro')">🇷🇴 Română</button>
+    <button class="lang" onclick="setLang('de')">🇩🇪 Deutsch</button>
+  </div>
+
+  <div class="cta">
+    <a id="callNowBtn" class="btn btn-call" href="https://wa.me/4915163269702" target="_blank" rel="noopener">📞 Sună acum</a>
+    <a id="reserveNowBtn" class="btn btn-book" href="#appointmentForm" onclick="scrollToForm(event)">💬 Rezervă acum</a>
+  </div>
 </header>
 
-<nav>
-  <button onclick="setLang('ro')">Română 🇷🇴</button>
-  <button onclick="setLang('de')">Deutsch 🇩🇪</button>
-</nav>
-
 <main>
-  <section id="intro">
-    <h2>❤️ Ai grijă de inima ta!</h2>
-    <p id="introText">Ofer consultații online de 30 minute cu sfaturi personalizate pentru sănătatea inimii tale.</p>
+
+  <!-- ABOUT RO -->
+  <section data-lang="ro" class="langSection">
+    <h2>Despre mine</h2>
+    <p>Cu peste 15 ani de experiență în Germania:</p>
+    <ul>
+      <li>Cardiologie clinică și intervențională (cateterism cardiac, tratament infarct)</li>
+      <li>Imagistică intracoronară: IVUS și OCT</li>
+      <li>Imagistică cardiovasculară: ecocardiografie, RMN și CT cardiac</li>
+      <li>Medicină de urgență și terapie intensivă</li>
+    </ul>
   </section>
 
-  <section id="appointmentForm">
-    <h2 id="formTitle">📅 Programează o consultație</h2>
-    <form>
-      <label for="date" id="dateLabel">Selectează data:</label><br>
-      <input type="date" id="date" required><br><br>
+  <!-- ABOUT DE -->
+  <section data-lang="de" class="langSection" style="display:none">
+    <h2>Über mich</h2>
+    <p>Über 15 Jahre Erfahrung in Deutschland in folgenden Bereichen:</p>
+    <ul>
+      <li>Klinische und interventionelle Kardiologie (Herzkatheter, Infarktbehandlung)</li>
+      <li>Intrakoronare Bildgebung: IVUS und OCT</li>
+      <li>Herzbildgebung: Echokardiographie, MRT und CT</li>
+      <li>Notfall- und Intensivmedizin</li>
+    </ul>
+  </section>
 
-      <label for="time" id="timeLabel">Selectează ora:</label><br>
-      <select id="time" required>
+  <!-- INTEREST / MISSION (same for both languages will be toggled) -->
+  <section data-lang="ro" class="langSection">
+    <h2>Domenii de interes</h2>
+    <ul>
+      <li>Prevenția bolilor cardiovasculare</li>
+      <li>Hipertensiune arterială</li>
+      <li>Insuficiență cardiacă</li>
+      <li>Boala coronariană</li>
+      <li>Evaluarea riscului cardiovascular</li>
+    </ul>
+  </section>
+  <section data-lang="de" class="langSection" style="display:none">
+    <h2>Interessengebiete</h2>
+    <ul>
+      <li>Prävention kardiovaskulärer Erkrankungen</li>
+      <li>Bluthochdruck</li>
+      <li>Herzinsuffizienz</li>
+      <li>KHK</li>
+      <li>Kardiovaskuläres Risikomanagement</li>
+    </ul>
+  </section>
+
+  <!-- APPOINTMENT FORM (single form, labels updated by language) -->
+  <section id="appointmentSection" class="langSection" data-lang="ro">
+    <h2 id="formTitle">Programează o consultație</h2>
+    <form id="mainForm">
+      <label id="labelName" for="name">Nume complet:</label>
+      <input id="name" name="name" type="text" value="Dan-Cristian Dr.med.Briscan" required>
+
+      <label id="labelEmail" for="email">Email:</label>
+      <input id="email" name="email" type="email" value="briscan.dancristian@yahoo.de" required>
+
+      <label id="labelPhone" for="phone">Telefon:</label>
+      <input id="phone" name="phone" type="tel" value="+4915163269702" required>
+
+      <label id="labelDate" for="date">Selectează data:</label>
+      <input id="date" name="date" type="date" required>
+
+      <label id="labelTime" for="time">Selectează ora:</label>
+      <select id="time" name="time" required>
         <option value="">-- Alege ora --</option>
-      </select><br><br>
+      </select>
 
-      <button type="submit" id="submitBtn">Trimite cererea</button>
+      <div style="margin-top:12px">
+        <button id="submitBtn" type="submit" class="btn btn-book">Programează</button>
+        <span class="small" id="submitStatus" style="margin-left:12px"></span>
+      </div>
     </form>
   </section>
 
-  <section id="contact">
-    <h2>📞 Contact</h2>
-    <ul style="list-style:none; padding-left:0;">
-      <li><a href="tel:+4915163269702">📞 +49 1516 3269702</a></li>
-      <li><a href="mailto:cristian.cardiolog@yahoo.com">✉️ cristian.cardiolog@yahoo.com</a></li>
-      <li><a href="https://www.instagram.com/cristian.cardiolog/" target="_blank">📷 Instagram</a></li>
-      <li><a href="https://www.facebook.com/profile.php?id=61579258951146" target="_blank">📘 Facebook</a></li>
+  <!-- CONTACT -->
+  <section class="langSection" data-lang="ro">
+    <h2>Contact</h2>
+    <ul class="contact-list" style="list-style:none;padding-left:0">
+      <li>📞 <a id="telLink" href="tel:+4915163269702">+49 1516 3269702</a></li>
+      <li>✉️ <a id="mailLink" href="mailto:cristian.cardiolog@yahoo.com">cristian.cardiolog@yahoo.com</a></li>
+      <li>📷 <a href="https://www.instagram.com/cristian.cardiolog/" target="_blank" rel="noopener">Instagram</a></li>
+      <li>📘 <a href="https://www.facebook.com/profile.php?id=61579258951146" target="_blank" rel="noopener">Facebook</a></li>
     </ul>
-    <canvas id="qrcode"></canvas>
+
+    <div style="margin-top:14px;text-align:center">
+      <img id="qrImg" alt="QR contact" src="" width="150" height="150" />
+      <div class="small">Scanează pentru a salva contactul</div>
+    </div>
   </section>
+
+  <section class="langSection" data-lang="de" style="display:none">
+    <h2>Kontakt</h2>
+    <ul class="contact-list" style="list-style:none;padding-left:0">
+      <li>📞 <a href="tel:+4915163269702">+49 1516 3269702</a></li>
+      <li>✉️ <a href="mailto:cristian.cardiolog@yahoo.com">cristian.cardiolog@yahoo.com</a></li>
+      <li>📷 <a href="https://www.instagram.com/cristian.cardiolog/" target="_blank" rel="noopener">Instagram</a></li>
+      <li>📘 <a href="https://www.facebook.com/profile.php?id=61579258951146" target="_blank" rel="noopener">Facebook</a></li>
+    </ul>
+    <div style="margin-top:14px;text-align:center">
+      <img id="qrImgDE" alt="QR kontakt" src="" width="150" height="150" />
+      <div class="small">QR scannen, um Kontakt zu speichern</div>
+    </div>
+  </section>
+
 </main>
 
-<div class="sticky-cta">
-  <button onclick="callNow()" id="callBtn">📞 Sună acum</button>
-  <button onclick="reserveNow()" id="reserveBtn">💬 Rezervă acum</button>
+<div class="sticky-cta" aria-hidden="true">
+  <a class="btn btn-call" href="https://wa.me/4915163269702" target="_blank" rel="noopener">📞 Sună acum</a>
+  <a class="btn btn-book" href="#appointmentSection" onclick="scrollToForm(event)">💬 Rezervă acum</a>
 </div>
 
-<footer>
-  &copy; 2025 Dr. med. Dan Cristian Briscan – Cardiolog | Toate drepturile rezervate
+<footer style="text-align:center;padding:14px;background:#e9eef2;margin-top:18px">
+  &copy; 2025 Dr. med. Dan Cristian Briscan
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
 <script>
-// === Config Google Sheet ===
-const sheetId = "YOUR_SHEET_ID";  // <-- înlocuiește cu ID-ul tău real
+/* ====== CONFIG - folosește sheet-ul publicat la web (TSV) ====== */
+const sheetId = "1eC49b44hj0HWq9_y3ozA1TkRdFpGYtOfj-nfiSXEGU4";
 const sheetUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/pub?output=tsv`;
-const dateInput = document.getElementById('date');
-const timeSelect = document.getElementById('time');
 
-async function fetchOccupiedSlots() {
-  try {
-    const res = await fetch(sheetUrl);
+/* ====== UTIL ====== */
+function normalizeDateToken(tok){
+  if(!tok) return tok;
+  tok = tok.trim();
+  // If format yyyy-mm-dd (input type=date standard) -> keep
+  if(/^\d{4}-\d{2}-\d{2}$/.test(tok)) return tok;
+  // If format dd.mm.yyyy -> convert
+  if(/^\d{2}\.\d{2}\.\d{4}$/.test(tok)){
+    const [d,m,y]=tok.split('.');
+    return `${y}-${m}-${d}`;
+  }
+  // If Google sheets numeric date appears, leave
+  return tok;
+}
+
+/* ====== PRELOAD occupied slots once ====== */
+let occupiedSlots = {}; // { 'YYYY-MM-DD': ['HH:MM','HH:MM', ...] }
+async function preloadSlots(){
+  try{
+    const res = await fetch(sheetUrl, {cache: "no-store"});
+    if(!res.ok) throw new Error("Sheet fetch failed: " + res.status);
     const text = await res.text();
-    const lines = text.split("\n").slice(1);
-    const slots = {};
-    lines.forEach(line => {
-      const [date, time] = line.split("\t");
-      if (!slots[date]) slots[date] = [];
-      if (time) slots[date].push(time.trim());
+    const lines = text.split(/\r?\n/).filter(Boolean);
+    // first line may be header; keep it robust: try to parse all lines and accept tokens that look like dates/times
+    lines.forEach((ln, idx) => {
+      if(idx===0 && /\w/.test(ln) && ln.toLowerCase().includes('date') ) return; // skip header if present
+      const cols = ln.split('\t').map(c=>c.trim()).filter(Boolean);
+      if(cols.length===0) return;
+      const dateTok = normalizeDateToken(cols[0]);
+      const timeTok = (cols[1]||'').trim();
+      if(!dateTok || !timeTok) return;
+      if(!/^\d{4}-\d{2}-\d{2}$/.test(dateTok)) return;
+      if(!occupiedSlots[dateTok]) occupiedSlots[dateTok]=[];
+      // store only HH:MM format
+      const t = timeTok.slice(0,5);
+      occupiedSlots[dateTok].push(t);
     });
-    return slots;
-  } catch(e) {
-    console.error("Eroare la preluarea sloturilor", e);
-    return {};
+    console.log("Preloaded occupied slots:", occupiedSlots);
+  }catch(err){
+    console.warn("Could not preload sheet slots:", err);
+    occupiedSlots = {}; // leave empty
   }
 }
 
-async function updateTimeOptions() {
-  timeSelect.innerHTML = '<option value="">-- Alege ora --</option>';
-  if (!dateInput.value) return;
-  const selectedDate = dateInput.value;
-  const slots = await fetchOccupiedSlots();
-  let startHour = 9, endHour = 17;
-  for (let h = startHour; h < endHour; h++) {
-    const hourStr = `${h}:00`;
-    const isOccupied = slots[selectedDate]?.includes(hourStr);
-    if (!isOccupied) {
+/* ====== Populate time options for a date (15-min intervals) ====== */
+function clearTimeOptions(sel){
+  sel.innerHTML = '<option value="">-- Alege ora --</option>';
+}
+function addTimeOptionsFor(selDate, selElement){
+  clearTimeOptions(selElement);
+  if(!selDate) return;
+  // selectedDate is yyyy-mm-dd (from <input type=date>)
+  const d = new Date(selDate + "T00:00:00");
+  const weekday = d.getDay(); // 0=Sun,6=Sat
+  const isWeekday = (weekday>=1 && weekday<=5);
+  const start = isWeekday ? 17 : 8;
+  const end = isWeekday ? 23 : 20;
+  const occupied = occupiedSlots[selDate] || [];
+  for(let h=start; h<=end; h++){
+    for(let m=0; m<60; m+=15){
+      const hh = String(h).padStart(2,'0');
+      const mm = String(m).padStart(2,'0');
+      const timestr = `${hh}:${mm}`;
       const opt = document.createElement('option');
-      opt.value = hourStr;
-      opt.textContent = hourStr;
-      timeSelect.appendChild(opt);
+      opt.value = timestr;
+      opt.textContent = timestr;
+      if(occupied.includes(timestr)){
+        opt.disabled = true;
+        opt.classList.add('option-occupied');
+        opt.textContent += ' (Ocupat)';
+      }
+      selElement.appendChild(opt);
     }
   }
 }
-dateInput.addEventListener('change', updateTimeOptions);
 
-// 📞 WhatsApp direct
-function callNow() {
-  window.open("https://wa.me/4915163269702", "_blank");
-}
-
-// 💬 Scroll la formular
-function reserveNow() {
-  document.getElementById("appointmentForm").scrollIntoView({ behavior: "smooth" });
-}
-
-// 🌍 Switch limbi
-const translations = {
-  ro: {
-    introText: "Ofer consultații online de 30 minute cu sfaturi personalizate pentru sănătatea inimii tale.",
-    formTitle: "📅 Programează o consultație",
-    dateLabel: "Selectează data:",
-    timeLabel: "Selectează ora:",
-    submitBtn: "Trimite cererea",
-    title: "Dr. med. Dan Cristian Briscan – Cardiolog"
-  },
-  de: {
-    introText: "Ich biete 30-minütige Online-Konsultationen mit personalisierten Ratschlägen für Ihre Herzgesundheit an.",
-    formTitle: "📅 Termin vereinbaren",
-    dateLabel: "Datum auswählen:",
-    timeLabel: "Uhrzeit auswählen:",
-    submitBtn: "Anfrage senden",
-    title: "Dr. med. Dan Cristian Briscan – Kardiologe"
+/* ====== Form submission: tries Web App, falls back to mailto ====== */
+const webAppUrl = "https://script.google.com/macros/s/AKfycbwzdhQCY_imWofBx8ekNnNPRjG32IM042h1XS7RAeY-W_wOu9ia8Ca150HgCwBXhvlV/exec"; // if you deployed
+async function submitForm(e){
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const date = document.getElementById('date').value;
+  const time = document.getElementById('time').value;
+  const status = document.getElementById('submitStatus');
+  status.textContent = "Se trimite...";
+  // Try sending to WebApp if deployed and public
+  try{
+    const payload = {name,email,phone,date,time};
+    const res = await fetch(webAppUrl, {
+      method:'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(payload)
+    });
+    if(res.ok){
+      status.textContent = "Cerere trimisă — vei primi confirmare prin email.";
+      setTimeout(()=>status.textContent='',5000);
+      e.target.reset();
+      clearTimeOptions(document.getElementById('time'));
+      return;
+    } else {
+      console.warn("WebApp returned",res.status);
+      throw new Error("webapp failed");
+    }
+  }catch(err){
+    console.warn("WebApp not available / blocked, fallback to mailto", err);
+    // Fallback: open mail client with prefilled subject/body
+    const subj = encodeURIComponent(`Programare online – ${name || 'Necunoscut'}`);
+    const bodyLines = [
+      `Nume: ${name}`,
+      `Email: ${email}`,
+      `Telefon: ${phone}`,
+      `Data: ${date}`,
+      `Ora: ${time}`,
+      ``,
+      `Trimis de pe site`
+    ];
+    const body = encodeURIComponent(bodyLines.join('\n'));
+    window.location.href = `mailto:cristian.cardiolog@yahoo.com?subject=${subj}&body=${body}`;
+    status.textContent = "Deschis client email (fallback).";
+    setTimeout(()=>status.textContent='',5000);
   }
-};
-function setLang(lang) {
-  document.getElementById("introText").textContent = translations[lang].introText;
-  document.getElementById("formTitle").textContent = translations[lang].formTitle;
-  document.getElementById("dateLabel").textContent = translations[lang].dateLabel;
-  document.getElementById("timeLabel").textContent = translations[lang].timeLabel;
-  document.getElementById("submitBtn").textContent = translations[lang].submitBtn;
-  document.getElementById("title").textContent = translations[lang].title;
 }
 
-// 🔲 QR Code contact
-new QRious({
-  element: document.getElementById('qrcode'),
-  value: "TEL:+4915163269702\nEMAIL:cristian.cardiolog@yahoo.com\nInstagram:https://www.instagram.com/cristian.cardiolog/\nFacebook:https://www.facebook.com/profile.php?id=61579258951146",
-  size: 180
-});
+/* ====== Language switch: updates visible sections + labels ====== */
+function setLang(lang){
+  // show only elements with matching data-lang or class langSection
+  document.querySelectorAll('.langSection').forEach(el=>{
+    const dl = el.getAttribute('data-lang');
+    if(!dl){ // if section has only "langSection" without data-lang, hide for DE only? we'll show for both
+      el.style.display = (lang==='ro') ? 'block' : 'block';
+    } else {
+      el.style.display = (dl===lang) ? 'block' : 'none';
+    }
+  });
+  // Update labels for bilingual single form
+  if(lang==='ro'){
+    document.getElementById('formTitle').textContent = 'Programează o consultație';
+    document.getElementById('labelName').textContent = 'Nume complet:';
+    document.getElementById('labelEmail').textContent = 'Email:';
+    document.getElementById('labelPhone').textContent = 'Telefon:';
+    document.getElementById('labelDate').textContent = 'Selectează data:';
+    document.getElementById('labelTime').textContent = 'Selectează ora:';
+    document.getElementById('submitBtn').textContent = 'Programează';
+    document.getElementById('hdrSubtitle').textContent = 'Medic specialist în Cardiologie și Medicină Internă';
+  } else {
+    document.getElementById('formTitle').textContent = 'Termin buchen';
+    document.getElementById('labelName').textContent = 'Vollständiger Name:';
+    document.getElementById('labelEmail').textContent = 'E-Mail:';
+    document.getElementById('labelPhone').textContent = 'Telefon:';
+    document.getElementById('labelDate').textContent = 'Datum auswählen:';
+    document.getElementById('labelTime').textContent = 'Uhrzeit wählen:';
+    document.getElementById('submitBtn').textContent = 'Buchen';
+    document.getElementById('hdrSubtitle').textContent = 'Facharzt für Kardiologie und Innere Medizin';
+  }
+}
+
+/* ====== Scroll to form (used by Rezervă acum) ====== */
+function scrollToForm(evt){
+  if(evt) evt.preventDefault();
+  const formEl = document.getElementById('mainForm');
+  formEl.scrollIntoView({behavior:'smooth',block:'center'});
+  // optionally focus date input
+  setTimeout(()=>document.getElementById('date').focus(),400);
+}
+
+/* ====== QR generation (simple using API) ====== */
+function setQR(){
+  const vcard = [
+    "BEGIN:VCARD",
+    "VERSION:3.0",
+    "FN:Dr. Dan Cristian Briscan",
+    "TEL:+4915163269702",
+    "EMAIL:cristian.cardiolog@yahoo.com",
+    "URL:https://www.instagram.com/cristian.cardiolog/",
+    "URL:https://www.facebook.com/profile.php?id=61579258951146",
+    "END:VCARD"
+  ].join('\n');
+  const img = document.getElementById('qrImg');
+  const imgDE = document.getElementById('qrImgDE');
+  const encoded = encodeURIComponent(vcard);
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encoded}`;
+  if(img) img.src = qrUrl;
+  if(imgDE) imgDE.src = qrUrl;
+}
+
+/* ====== Boot sequence ====== */
+(async function init(){
+  setLang('ro');            // default language
+  await preloadSlots();     // load occupied slots from Google Sheet
+  setQR();                  // fill QR image(s)
+  // wire submit handler
+  document.getElementById('mainForm').addEventListener('submit', submitForm);
+  // wire date change -> populate times
+  document.getElementById('date').addEventListener('change', function(){
+    const val = this.value; // yyyy-mm-dd
+    addTimeOptionsFor(val, document.getElementById('time'));
+  });
+})();
 </script>
 </body>
 </html>
