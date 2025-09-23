@@ -6,9 +6,11 @@
 <title>Dr. med. Dan Cristian Briscan – Cardiolog</title>
 <style>
 body{font-family:sans-serif;margin:0;padding:0;background:#f4f6f8;color:#333;}
-header{background:#007bff;color:#fff;padding:50px;text-align:center;}
-header h1{margin:0;font-size:36px;}
-header p{margin:5px 0 20px;}
+header{background:#007bff;color:#fff;padding:20px;text-align:center;position:relative;}
+header h1{margin:5px;font-size:28px;}
+header p{margin:5px;font-size:16px;}
+.contact-top{background:#fff;color:#333;padding:10px;text-align:center;}
+.contact-top a{margin:0 10px;text-decoration:none;color:#007bff;font-weight:bold;}
 button,a{padding:10px 20px;margin:5px;text-decoration:none;color:#fff;border:none;border-radius:5px;cursor:pointer;}
 .btn-call{background:#28a745;}
 .btn-book{background:#ffc107;color:#333;}
@@ -20,6 +22,14 @@ select, input{width:100%;padding:10px;margin:5px 0;border-radius:5px;border:1px 
 </style>
 </head>
 <body>
+
+<!-- Contact vizibil sus -->
+<div class="contact-top">
+📞 <a href="tel:+4915163269702">+49 1516 3269702</a> | 
+✉️ <a href="mailto:cristian.cardiolog@yahoo.com">cristian.cardiolog@yahoo.com</a> | 
+📷 <a href="https://www.instagram.com/cristian.cardiolog/" target="_blank">Instagram</a> | 
+📘 <a href="https://www.facebook.com/profile.php?id=61579258951146" target="_blank">Facebook</a>
+</div>
 
 <header>
 <h1 data-lang="ro">Dr. med. Dan Cristian Briscan</h1>
@@ -68,18 +78,6 @@ select, input{width:100%;padding:10px;margin:5px 0;border-radius:5px;border:1px 
 <button type="submit" class="btn btn-book hidden" data-lang="de">Buchen</button>
 </form>
 </section>
-
-<section>
-<h2 data-lang="ro">Contact</h2>
-<h2 data-lang="de" class="hidden">Kontakt</h2>
-<ul>
-<li>📞 <a href="tel:+4915163269702">+49 1516 3269702</a></li>
-<li>✉️ <a href="mailto:cristian.cardiolog@yahoo.com">cristian.cardiolog@yahoo.com</a></li>
-<li>📷 <a href="https://www.instagram.com/cristian.cardiolog/" target="_blank">Instagram</a></li>
-<li>📘 <a href="https://www.facebook.com/profile.php?id=61579258951146" target="_blank">Facebook</a></li>
-</ul>
-</section>
-
 </main>
 
 <div class="sticky-cta">
@@ -94,11 +92,10 @@ document.querySelectorAll('[data-lang]').forEach(el=>{
 el.classList.add('hidden');
 if(el.getAttribute('data-lang')===lang) el.classList.remove('hidden');
 });
-// scroll to top
 window.scrollTo(0,0);
 }
 
-// === TIME SELECT POPULATE (exemplu static) ===
+// === TIME SELECT POPULATE FUNCTIONAL ===
 const dateInput = document.getElementById('date');
 const timeSelect = document.getElementById('time');
 dateInput.addEventListener('change', updateTimeOptions);
@@ -106,11 +103,10 @@ dateInput.addEventListener('change', updateTimeOptions);
 function updateTimeOptions(){
 timeSelect.innerHTML='<option value="">-- Alege ora --</option>';
 if(!dateInput.value) return;
-// ore de test
-let slots=['17:00','17:15','17:30','18:00','18:15','18:30'];
+// orele disponibile (exemplu funcțional)
+let slots=['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00'];
 slots.forEach(s=>{
-let option=document.createElement('option');
-option.value=s; option.textContent=s; timeSelect.appendChild(option);
+let opt=document.createElement('option'); opt.value=s; opt.textContent=s; timeSelect.appendChild(opt);
 });
 }
 </script>
