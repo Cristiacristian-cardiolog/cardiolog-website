@@ -17,8 +17,8 @@ header p { font-size:22px; margin-bottom:35px; font-weight:400; }
 .btn { padding:15px 30px; border-radius:50px; font-size:18px; font-weight:bold; text-decoration:none; color:#fff; transition: transform 0.2s, box-shadow 0.2s; display:inline-block; text-align:center; cursor:pointer; }
 .btn-book { background-color:#28a745; }
 .btn-book:hover { background-color:#218838; transform:scale(1.05); box-shadow:0 5px 15px rgba(0,0,0,0.3); }
-.btn-call { background-color:#25D366; color:#fff; } /* WhatsApp verde */
-.btn-call:hover { background-color:#1EBE5B; transform:scale(1.05); box-shadow:0 5px 15px rgba(0,0,0,0.3); }
+.btn-call { background-color:#25D366; color:#fff; } /* WhatsApp green */
+.btn-call:hover { background-color:#128C7E; transform:scale(1.05); box-shadow:0 5px 15px rgba(0,0,0,0.3); }
 main { max-width:1000px; margin:40px auto; padding:0 20px; }
 section { padding:40px 25px; border-radius:15px; margin-bottom:35px; background-color:#fff; box-shadow:0 6px 25px rgba(0,0,0,0.08); }
 h2 { color:#007bff; margin-bottom:20px; font-size:28px; }
@@ -38,15 +38,18 @@ form input, form select, form textarea { width:100%; padding:12px; margin:6px 0 
 </head>
 <body>
 <header>
-<h1>Dr. med. Dan Cristian Briscan</h1>
-<p>Medic specialist în Cardiologie și Medicină Internă</p>
+<h1 data-lang="ro">Dr. med. Dan Cristian Briscan</h1>
+<h1 data-lang="de" style="display:none">Dr. med. Dan Cristian Briscan</h1>
+<p data-lang="ro">Medic specialist în Cardiologie și Medicină Internă</p>
+<p data-lang="de" style="display:none">Facharzt für Kardiologie und Innere Medizin</p>
 <div class="cta-buttons">
-  <a href="https://wa.me/4915163269702" class="btn btn-call" target="_blank">Sună acum</a>
+  <a href="https://wa.me/4915163269702" class="btn btn-call">Sună acum</a>
   <a href="#appointmentForm" class="btn btn-book">Rezervă acum</a>
 </div>
 </header>
 <main>
-<section>
+<!-- Despre mine RO -->
+<section data-lang="ro">
 <h2>Despre mine</h2>
 <p>Sunt medic cu o experiență de peste 15 ani în Germania, în domeniile:</p>
 <ul>
@@ -56,23 +59,20 @@ form input, form select, form textarea { width:100%; padding:12px; margin:6px 0 
 <li>Medicină de urgență și terapie intensivă</li>
 </ul>
 </section>
-<section>
-<h2>Domenii de interes</h2>
+<!-- Despre mine DE -->
+<section data-lang="de" style="display:none">
+<h2>Über mich</h2>
+<p>Ich bin Arzt mit über 15 Jahren Erfahrung in Deutschland in den Bereichen:</p>
 <ul>
-<li>Prevenția bolilor cardiovasculare</li>
-<li>Hipertensiune arterială</li>
-<li>Insuficiență cardiacă</li>
-<li>Boala coronariană</li>
-<li>Evaluarea riscului cardiovascular</li>
-<li>Consiliere pentru stil de viață sănătos</li>
+<li>Klinische und interventionelle Kardiologie (Herzkatheter, Behandlung von Herzinfarkten)</li>
+<li>Intrakoronare Bildgebung: IVUS und OCT</li>
+<li>Kardiovaskuläre Bildgebung (Echokardiografie, MRT und CT des Herzens)</li>
+<li>Notfallmedizin und Intensivtherapie</li>
 </ul>
 </section>
-<section>
-<h2>Misiunea mea</h2>
-<p>Misiunea mea este să fiu aproape de tine și de familia ta, oferind suport medical profesionist, accesibil și sigur, indiferent unde te afli.</p>
-<p>„Ai grijă de inima ta ❤️! Găsești aici sfaturi utile și poți programa rapid o consultație online.”</p>
-</section>
-<section>
+
+<!-- Formular programări -->
+<section data-lang="ro">
 <h2>Programează o consultație</h2>
 <form action="https://formsubmit.co/cristian.cardiolog@yahoo.com" method="POST" id="appointmentForm">
   <input type="hidden" name="_captcha" value="false">
@@ -89,56 +89,109 @@ form input, form select, form textarea { width:100%; padding:12px; margin:6px 0 
   <button type="submit" class="btn btn-book">Programează</button>
 </form>
 </section>
-<section>
+
+<section data-lang="de" style="display:none">
+<h2>Termin buchen</h2>
+<form action="https://formsubmit.co/cristian.cardiolog@yahoo.com" method="POST" id="appointmentFormDE">
+  <input type="hidden" name="_captcha" value="false">
+  <label for="name">Vollständiger Name:</label>
+  <input type="text" id="nameDE" name="name" required>
+  <label for="email">Email:</label>
+  <input type="email" id="emailDE" name="email" required>
+  <label for="phone">Telefon:</label>
+  <input type="tel" id="phoneDE" name="phone" required>
+  <label for="date">Datum auswählen:</label>
+  <input type="date" id="dateDE" name="date" required>
+  <label for="time">Uhrzeit auswählen:</label>
+  <select id="timeDE" name="time" required></select>
+  <button type="submit" class="btn btn-book">Buchen</button>
+</form>
+</section>
+
+<!-- Contact + QR -->
+<section data-lang="ro">
 <h2>Contact</h2>
-<ul class="contact-list" style="list-style:none; padding-left:0;">
-<li>📞 <a href="https://wa.me/4915163269702" target="_blank">+49 1516 3269702</a></li>
+<ul class="contact-list">
+<li>📞 <a href="tel:+4915163269702">+49 1516 3269702</a></li>
 <li>✉️ <a href="mailto:cristian.cardiolog@yahoo.com">cristian.cardiolog@yahoo.com</a></li>
 <li>📷 <a href="https://www.instagram.com/cristian.cardiolog/" target="_blank">Instagram</a></li>
 <li>📘 <a href="https://www.facebook.com/profile.php?id=61579258951146" target="_blank">Facebook</a></li>
 </ul>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=tel:+4915163269702%0Amailto:cristian.cardiolog@yahoo.com%0AInstagram:https://www.instagram.com/cristian.cardiolog/%0AFacebook:https://www.facebook.com/profile.php?id=61579258951146" alt="QR Contact">
 </section>
+
+<section data-lang="de" style="display:none">
+<h2>Kontakt</h2>
+<ul class="contact-list">
+<li>📞 <a href="tel:+4915163269702">+49 1516 3269702</a></li>
+<li>✉️ <a href="mailto:cristian.cardiolog@yahoo.com">cristian.cardiolog@yahoo.com</a></li>
+<li>📷 <a href="https://www.instagram.com/cristian.cardiolog/" target="_blank">Instagram</a></li>
+<li>📘 <a href="https://www.facebook.com/profile.php?id=61579258951146" target="_blank">Facebook</a></li>
+</ul>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=tel:+4915163269702%0Amailto:cristian.cardiolog@yahoo.com%0AInstagram:https://www.instagram.com/cristian.cardiolog/%0AFacebook:https://www.facebook.com/profile.php?id=61579258951146" alt="QR Kontakt">
+</section>
+
 </main>
+
 <div class="sticky-cta">
-  <a href="https://wa.me/4915163269702" class="btn btn-call" target="_blank">Sună acum</a>
+  <a href="https://wa.me/4915163269702" class="btn btn-call">Sună acum</a>
   <a href="#appointmentForm" class="btn btn-book">Rezervă acum</a>
 </div>
+
 <footer>
 &copy; 2025 Dr. med. Dan Cristian Briscan – Cardiolog | Toate drepturile rezervate
 </footer>
 
 <script>
-const sheetId = "1eC49b44hj0HWq9_y3ozA1TkRdFpGYtOfj-nfiSXEGU4";
-const sheetUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/pub?output=tsv`;
-const dateInput = document.getElementById("date");
-const timeSelect = document.getElementById("time");
-let occupiedSlots = {};
+// === LIMBA ===
+function switchLang(lang){
+  document.querySelectorAll('[data-lang]').forEach(s=>{
+    s.style.display = s.getAttribute('data-lang')===lang ? 'block' : 'none';
+  });
+}
 
-(async function preloadSlots() {
+// === GOOGLE SHEET pentru ore ocupate ===
+const sheetId = "YOUR_SHEET_ID"; // pune aici ID-ul real
+const sheetUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/pub?output=tsv`;
+
+async function fetchOccupiedSlots() {
   const res = await fetch(sheetUrl);
   const text = await res.text();
   const lines = text.split("\n").slice(1);
+  const slots = {};
   lines.forEach(line => {
     const [date, time] = line.split("\t");
-    if (!occupiedSlots[date]) occupiedSlots[date] = [];
-    if(time) occupiedSlots[date].push(time.trim());
+    if(!slots[date]) slots[date]=[];
+    if(time) slots[date].push(time.trim());
   });
-})();
+  return slots;
+}
 
-function updateTimeOptions() {
+async function updateTimeOptions(dateInputId, timeSelectId){
+  const dateInput = document.getElementById(dateInputId);
+  const timeSelect = document.getElementById(timeSelectId);
   timeSelect.innerHTML = '<option value="">-- Alege ora --</option>';
-  if (!dateInput.value) return;
+  if(!dateInput.value) return;
   const selectedDate = dateInput.value;
-  const day = new Date(selectedDate).getDay();
-  let startHour = (day >=1 && day <=5) ? 17 : 8;
-  let endHour = (day >=1 && day <=5) ? 23 : 20;
+  const occupiedSlots = await fetchOccupiedSlots();
   const occupied = occupiedSlots[selectedDate] || [];
+  let startHour = 17, endHour=23;
+  const day = new Date(selectedDate).getDay();
+  if(day===0||day===6){ startHour=8; endHour=20; }
   for(let h=startHour; h<=endHour; h++){
     for(let m=0;m<60;m+=15){
-      const hourStr = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}`;
-      const option = document.createElement("option");
-      option.value = hourStr;
-      option.textContent = hourStr;
-      if(occupied.includes(hourStr)){
-        option.disabled=true;
-        option.classList.add
+      const hourStr = h.toString().padStart(2,'0') + ':' + m.toString().padStart(2,'0');
+      const opt=document.createElement('option');
+      opt.value=hourStr; opt.textContent=hourStr;
+      if(occupied.includes(hourStr)){ opt.disabled=true; opt.textContent+=" (Ocupat)"; opt.classList.add('option-occupied'); }
+      timeSelect.appendChild(opt);
+    }
+  }
+}
+
+// Event listeners
+document.getElementById('date')?.addEventListener('change',()=>updateTimeOptions('date','time'));
+document.getElementById('dateDE')?.addEventListener('change',()=>updateTimeOptions('dateDE','timeDE'));
+</script>
+</body>
+</html>
